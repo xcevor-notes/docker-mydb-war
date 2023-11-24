@@ -12,6 +12,7 @@ services:
   db:
     container_name: mysql-cont
     image: mysql:8.0.34
+    restart: always
     ports:
       - '24792:3306'
     environment:

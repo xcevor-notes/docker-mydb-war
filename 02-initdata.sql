@@ -8,7 +8,7 @@ VALUES
 
 INSERT INTO member (id, pwd, name, email, auth)
 VALUES
-    ('jd001', 'asdf', 'MEM John Doe', '123-456-7890', 0),
+    ('jd001', 'asdf', 'MEM John Doe', CONVERT_TZ(NOW(), 'UTC', '+09:00'), 0),
     ('js002', 'asdf', 'MEM Jane Smith', '987-654-3210', 0),
     ('mj003', 'asdf', 'MEM Michael Johnson', '555-123-4567', 0),
     ('ed004', 'asdf', 'MEM Emily Davis', '777-888-9999', 0),

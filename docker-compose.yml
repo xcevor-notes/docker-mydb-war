@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  tomcat:
+    container_name: tomcat-cont
+    image: tomcat:9.0.71-jdk17-temurin-jammy
+    ports:
+      - '24791:8080'
+    volumes:
+      - ./ROOT.war:/usr/local/tomcat/webapps/ROOT.war
+    links:
+      - db:localhost
+  db:
+    container_name: mysql-cont
+    image: mysql:8.0.34
+    ports:
+      - '24792:3306'
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_PASSWORD: mypassword
+    volumes:
+      - ./01-init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./02-initdata.sql:/docker-entrypoint-initdb.d/02-initdata.sql

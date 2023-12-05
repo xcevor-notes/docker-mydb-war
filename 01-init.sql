@@ -19,3 +19,17 @@ CREATE TABLE member (
 );
 
 ALTER TABLE member convert to character set utf8;
+
+
+CREATE TABLE news_board (
+    seq INT AUTO_INCREMENT PRIMARY KEY,
+    id VARCHAR(50),
+    ref INT,
+    step INT,
+    depth INT,
+    title VARCHAR(100),
+    content TEXT,
+    wdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    del INT DEFAULT 0,
+    readcount INT DEFAULT 0
+);
